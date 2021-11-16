@@ -17,16 +17,17 @@ The strain is a local measure of the shape-changes of a structure. As it is a lo
 In addition, for convenience, we would like to have a strain measure such that if it is zero there is no deformation
 3. It should be zero if there are no deformations. 
 
+
 ## The deformation gradient and the small strain tensor
-The deformation gradient, $\ts{F}$, measures exactly what the name implies: the *gradient* of the *deformation*:
+The deformation gradient, $\ts{F}$, measures the *gradient* of the *deformed coordinates*, $\tv{x}=\tv{X}+\tv{u}$ (the name *displacement gradient* is sometimes used for $\ts{F}-\ts{I}=\ilpdiff{\tv{u}}{\tv{X}}$)
 \begin{align}
-\ts{F} = \gradX{\tv{x}} = \pdiff{\tv{x}}{\tv{X}}
+\ts{F} = \gradX{\tv{x}} = \pdiff{\tv{x}}{\tv{X}} = \pdiff{\tv{u}}{\tv{X}} + \ts{I}
 \end{align}
-Here, $\tv{x}$ are the deformed coordinates and $\tv{X}$ the undeformed coordinates. That is, if we have the displacements $\tv{u}$, then $\tv{x}=\tv{X}+\tv{u}$. In 2 dimensions, the effect of the deformation gradient on a area, which initially is a square, can be illustrated as
+Here, $\tv{x}$ are the deformed coordinates and $\tv{X}$ the undeformed coordinates. That is, if we have the displacements $\tv{u}$, then $\tv{x}=\tv{X}+\tv{u}$. In 2 dimensions, the effect of the deformation gradient on an area, which is initially square, can be illustrated as
 
 ![](/assets/DeformationGradient.svg)
 
-Based on this figure, it is clear that the deformation gradient describes how an infitesimal volume element changes shape. But it is not zero when the strain is zero, it is actually the identity tensor. This problem is  easily solved by defining the strain as $\ts{F}-\ts{I}$. However, consider a pure rotation of the square:
+Based on this figure, it is clear that the deformation gradient describes how an infitesimal volume element changes shape. But it is not zero when the strain is zero - it is the identity tensor. Defining the strain as $\ts{F}-\ts{I}$ solves this problem. However, consider a pure rotation of the square:
 
 ![](/assets/DeformationGradientRotation.svg)
 
@@ -37,7 +38,7 @@ For the small rotation, $\beta=5^\mathrm{o}$, we see that we obtain a change in 
 \end{align}
 This strain measure is the small strain tensor, and we will use it throughout the linear continuum mechanics course. 
 
-Considering the larger rotation, $\beta=30^\mathrm{o}$, even the diagonal (normal) terms are affected. Therefore, this strain measure cannot be used if we have large rotations. 
+Considering the larger rotation, $\beta=30^\mathrm{o}$, even the diagonal (normal) terms are affected. Therefore, $\ts{\epsilon}$ is not suitable for large rotations. 
 
 In later courses dealing with nonlinear continuum mechanics, so-called finite strain measures can be introduced. Once example is the Green-Lagrange strain, $\ts{E}$, defined as
 \begin{align}
