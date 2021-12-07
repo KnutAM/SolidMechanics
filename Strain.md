@@ -19,7 +19,7 @@ In addition, for convenience, we would like to have a strain measure such that i
 
 
 ## The deformation gradient and the small strain tensor
-The deformation gradient, $\ts{F}$, measures the *gradient* of the *deformed coordinates*, $\tv{x}=\tv{X}+\tv{u}$ (the name *displacement gradient* is sometimes used for $\ts{F}-\ts{I}=\ilpdiff{\tv{u}}{\tv{X}}$)
+The deformation gradient, $\ts{F}$, measures the *gradient* of the *deformed coordinates*, $\tv{x}=\tv{X}+\tv{u}$ (the name *displacement gradient* is sometimes used for $\ts{F}-\ts{I}=\pdiffil{\tv{u}}{\tv{X}}$)
 \begin{align}
 \ts{F} = \gradX{\tv{x}} = \pdiff{\tv{x}}{\tv{X}} = \pdiff{\tv{u}}{\tv{X}} + \ts{I}
 \end{align}
