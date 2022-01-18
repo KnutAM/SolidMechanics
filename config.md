@@ -114,6 +114,10 @@ Add here global latex commands to use throughout your pages.
 \newcommand{\sym}{^{ \mathrm{sym} } }
 \newcommand{\skw}{^{ \mathrm{skw} } }
 
+<!-- Standard tensors -->
+\newcommand{\sig}{\ts{\sigma}}
+\newcommand{\eps}{\ts{\epsilon}}
+
 <!-- Colors -->
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\green}[1]{\textcolor{green}{#1}}

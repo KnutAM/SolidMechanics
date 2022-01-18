@@ -2,8 +2,10 @@
 @def tags = ["syntax", "code"]
 
 # Linear Continuum Mechanics
-*Brief intro* (TBC)
+Currently, this page introduces [strains](/Strain) and [the boundary value problem (BVP)](/BoundaryValueProblem).
 
+
+## Contributing
 There are three ways you can contribute to this improvement while also learning more yourself:
 
 1. **Something is unclear**: Click "Discuss page contents" and contribute to the discussion on the relevant page
