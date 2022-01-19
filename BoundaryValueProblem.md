@@ -13,7 +13,7 @@ Our goal is to investigate a structure subjected to external loads. We might, fo
 \begin{align}
 \div{\sig} + \tv{b} &= \tv{0}
 \end{align}
-inside the body, and that the traction $\tv{t}$ is
+inside the body subjected to the body load $\tv{b}$ [Force/Volume], and that the traction $\tv{t}$ is
 \begin{align}
 \tv{t} &= \tv{n}\cdot\sig
 \end{align}
@@ -21,7 +21,7 @@ on the boundary, where $\tv{n}$ is the normal vector.
 
 ![](/assets/Potato.svg)
 
-How high the stresses become for given displacements, depend on the material behavior. That is how $\sig$ is a function of the strain $\eps$. For linear elasticity, we have that
+How high the stresses become for given displacements, depends on the material behavior. That is, how $\sig$ depends on the strain $\eps$. For linear elasticity, we have that
 \begin{align}
 \sig(\eps) = \tf{E}:\eps, \quad \text{(Linear elasticity)}
 \end{align}
@@ -37,16 +37,16 @@ We now have the differential equations required to solve the boundary value prob
 \tv{u}(x) &= \tv{h}(\tv{x}), \quad \tv{x} \in \Gamma\subscr{D} \\
 \tv{n} \cdot \sig(\eps(\tv{u}(\tv{x}))) &= \tv{g}(\tv{x}), \quad \tv{x} \in \Gamma\subscr{N}\label{eq:bvp}
 \end{align}
-where the first equation defines the differential equation inside the body (light orange). The second equation give the so-called Dirichlet boundary conditions, here we already know the value of the displacements. And finally, the part of the boundary with unknown displacements is called the Neuman (also natural) boundary. Here, we know the traction. Often, a majority of the boundary has zero load but we know it is zero!
+where the first equation defines the differential equation inside the body (light orange). The second equation give the so-called Dirichlet boundary conditions (black, $\Gamma\subscr{d}$), here we already know the value of the displacements. And finally, the part of the boundary with unknown displacements is called the Neuman (also natural) boundary (blue, $\Gamma\subscr{N}$). Here, we know the traction. Often, a majority of the boundary has zero load but we know it is zero!
 
-The problem is - it is not possible to determine the function $\tv{u}(\tv{x})$ for most cases. While it is possible in a few special cases, what to do for the remaining problems? More on that [below](#finite_element_approximations_to_the_bvp), let's first start with a few cases where we can find a solution analytically.
+The problem is - it is not possible to determine the function $\tv{u}(\tv{x})$ for most cases. While it is possible in a few special cases, what to do for the remaining problems? More on that [below](#finite_element_approximations_to_the_bvp), let's first start with a case where we can find the solution analytically.
 
-## Analytical solutions to the BVP
+## Analytical solution to the BVP
 Consider the case of cylinder subjected to uniaxial tension, with an isotropic material:
 
 ![](/assets/UniaxialTensionTest.svg)
 
-On the blue edges we have Neumann (natural) boundary conditions. We don't know the displacements, but we know the traction. On the right side ($x_1=L$), this traction is $[F/A]\onebase{1}$, where $A$ is the cross-sectional area and on the sides of the cylinder the traction is zero. On the left side, we actually have mixed boundary conditions. We know that the traction in the $x_2$-$x_3$ plane is zero (Neumann), and we know that the displacement is zero in the $\onebase{1}$ direction (Dirichlet). 
+On the blue edges we have Neumann (natural) boundary conditions. We don't know the displacements, but we know the traction. On the right side ($x_1=L$), this traction is $[F/A]\onebase{1}$, where $A$ is the cross-sectional area and on the sides of the cylinder the traction is zero. On the left side, we actually have mixed boundary conditions. We know that the traction components in the $x_2$-$x_3$ plane are zero (Neumann), and that the displacement is zero in the $\onebase{1}$ direction (Dirichlet). 
 
 \collaps{To solve the differential equation, we make the following ansatz}{**How did we arrive at this ansatz?**
 
@@ -60,9 +60,9 @@ From this ansatz, we obtain the constant strains as
 \eps = a_1 \twobase{1}{1} + a_2 \twobase{2}{2} + a_3 \twobase{3}{3} \label{eq:strainansatz}
 \end{align}
 
-For linear isotropic elasticity, we have $\sig = 2G \eps\dev + K\eps\sph$, with
+For linear isotropic elasticity, we have $\sig = 2G \eps\dev + 3K\eps\sph$, with
 \begin{align}
-\eps\sph &= [a_1+a_2+a_3] \ts{I} \\
+\eps\sph &= \frac{a_1+a_2+a_3}{3} \ts{I} \\
 \eps\dev &= \frac{2a_1 - a_2 - a_3}{3}\twobase{1}{1} + \frac{2a_2 - a_1 - a_3}{3}\twobase{2}{2} + \frac{2a_3 - a_1 - a_2}{3}\twobase{3}{3}
 \end{align}
 
@@ -106,7 +106,7 @@ Finally, if we insert the constitutive relationship $\sig=2G \eps\dev + K\eps\sp
 \begin{align}
 \sig &= \frac{F}{A} \twobase{1}{1} \label{eq:stressresult}
 \end{align}
-I.e. we see that the stress is indeed uniaxial. Furthermore, seeing combining Equation \eqref{eq:kinematicresult} with Equation \eqref{eq:stressresult}, we see that indeed $\sigma_{11}=E \epsilon_{11}$, showing that the $E$ we defined earlier is indeed Young's modulus. 
+I.e. we see that the stress is indeed uniaxial. Furthermore, seeing combining Equation \eqref{eq:kinematicresult} with Equation \eqref{eq:stressresult}, we see that $\sigma_{11}=E \epsilon_{11}$, showing that the $E$ we defined earlier is the actual Young's modulus. 
 
 In summary, for even this very simple case, determining the solution to the BVP in Equation \eqref{eq:bvp} was quite a bit of effort. And as previously noted, in many cases no unique solution exists even if we include simplifications such as [plane stress or strain](#plane_stress_and_strain). 
 
