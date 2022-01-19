@@ -1,7 +1,7 @@
 <!--
 -->
 +++
-title = "Linear Continuum Mechanics"
+title = "Solid Mechanics"
 author = "Knut Andreas Meyer"
 mintoclevel = 2
 
@@ -12,8 +12,8 @@ mintoclevel = 2
 ignore = ["node_modules/"]
 
 # RSS (the website_{title, descr, url} must be defined to get RSS)
-website_title = "Linear Continuum Mechanics"
-website_descr = "Introduction to Linear Continuum Mechanics"
+website_title = "Solid Mechanics"
+website_descr = "Introduction to Solid Mechanics"
 prepath = "LinearContinuumMechanics/"
 website_url   = "https://knutam.github.io/"
 +++

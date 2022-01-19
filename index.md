@@ -1,16 +1,20 @@
-@def title = "Linear Continuum Mechanics"
+@def title = "Solid Mechanics"
 @def tags = ["syntax", "code"]
 
-# Linear Continuum Mechanics
-Currently, this page introduces [strains](/Strain) and [the boundary value problem (BVP)](/BoundaryValueProblem).
+# Solid Mechanics
+This page is under development and is planned to introduce
+
+* [Strains](/Strain)
+* [Stresses](/Stresses) (*missing*)
+* [Elasticity](/Elasticity) (*missing*)
+* [The Boundary Value Problem (BVP)](/BoundaryValueProblem).
+* [The Finite Element Method (FEM)](/FiniteElements)
+
+The tensor notation is introduced on a separate [webpage](https://knutam.github.io/tensors/). 
 
 
 ## Contributing
-There are three ways you can contribute to this improvement while also learning more yourself:
-
-1. **Something is unclear**: Click "Discuss page contents" and contribute to the discussion on the relevant page
-2. **Something is wrong**: Click "Report errors" on that page to open an issue on GitHub
-3. **Something is wrong, and you have a suggestion to fix**: "Pull requests" are welcome! (see e.g. [distributed version control](https://coderefinery.github.io/git-collaborative/))
+If you find something that is wrong (even small typos), please click "Report errors" on that page to open an issue on GitHub. If you want to contribute directly, you can also suggest a fix with a *pull request*, see e.g. [distributed version control](https://coderefinery.github.io/git-collaborative/)
 
 Please adhere to the [Julia Community Standards](https://julialang.org/community/standards/) while contributing to maintain a positive and constructive environment.
 
