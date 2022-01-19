@@ -5,7 +5,6 @@
 **Intended learning outcomes**
 * Derive the strong form of the equilibrium equations for a solid
 * Apply appropriate boundary conditions to the boundary value problem
-* Derive the weak form of the equilibrium from both the principle of minimum potential energy and the strong form of the equilibrium equations
 
 
 # The boundary value problem (BVP)
@@ -34,14 +33,14 @@ We thus need to determine the strains, $\eps$, inside the body to calculate the 
 We now have the differential equations required to solve the boundary value problem, namely 
 \begin{align}
 \div{\sig(\eps(\tv{u}(\tv{x})))} + \tv{b} &= \tv{0},\phantom{(\tv{x})} \quad \tv{x} \in \Omega \\
-\tv{u}(x) &= \tv{h}(\tv{x}), \quad \tv{x} \in \Gamma\subscr{D} \\
-\tv{n} \cdot \sig(\eps(\tv{u}(\tv{x}))) &= \tv{g}(\tv{x}), \quad \tv{x} \in \Gamma\subscr{N}\label{eq:bvp}
+\tv{u}(x) &= \tv{u}\subscr{D}(\tv{x}), \quad \tv{x} \in \Gamma\subscr{D} \\
+\tv{n} \cdot \sig(\eps(\tv{u}(\tv{x}))) &= \tv{t}\subscr{N}(\tv{x}), \quad \tv{x} \in \Gamma\subscr{N}\label{eq:bvp}
 \end{align}
 where the first equation defines the differential equation inside the body (light orange). The second equation give the so-called Dirichlet boundary conditions (black, $\Gamma\subscr{d}$), here we already know the value of the displacements. And finally, the part of the boundary with unknown displacements is called the Neuman (also natural) boundary (blue, $\Gamma\subscr{N}$). Here, we know the traction. Often, a majority of the boundary has zero load but we know it is zero!
 
-The problem is - it is not possible to determine the function $\tv{u}(\tv{x})$ for most cases. While it is possible in a few special cases, what to do for the remaining problems? More on that [below](#finite_element_approximations_to_the_bvp), let's first start with a case where we can find the solution analytically.
+The problem is - it is not possible to determine the function $\tv{u}(\tv{x})$ for most cases. While it is possible in a few special cases, what to do for the remaining problems? Often, we use [the finite element method](/FiniteElements). But now let's first start with a case where we can find the solution analytically.
 
-## Analytical solution to the BVP
+## Analytical solution to the BVP (uniaxial stress)
 Consider the case of cylinder subjected to uniaxial tension, with an isotropic material:
 
 ![](/assets/UniaxialTensionTest.svg)
@@ -110,6 +109,5 @@ I.e. we see that the stress is indeed uniaxial. Furthermore, seeing combining Eq
 
 In summary, for even this very simple case, determining the solution to the BVP in Equation \eqref{eq:bvp} was quite a bit of effort. And as previously noted, in many cases no unique solution exists even if we include simplifications such as [plane stress or strain](#plane_stress_and_strain). 
 
-## Finite Element Approximations to the BVP
-
 ## Plane strain and stress
+To be completed ...
