@@ -18,4 +18,4 @@ If you find something that is wrong (even small typos), please click "Report err
 
 Please adhere to the [Julia Community Standards](https://julialang.org/community/standards/) while contributing to maintain a positive and constructive environment.
 
-This website is written for the course "Linear Continuum Mechanics" offered by the [Institute of Applied Mechanics](https://tu-bs.de/iam) at TU Braunschweig, but contributions from others are of course also welcome. The content is licensed under the [MIT License](/page_license) unless otherwise specified.
+This website is written for the course "Linear Solid Mechanics" (Lineare Kontinuumsmechanik) offered by the [Institute of Applied Mechanics](https://tu-bs.de/iam) at TU Braunschweig, but contributions from others are of course also welcome. The content is licensed under the [MIT License](/page_license) unless otherwise specified.
