@@ -692,3 +692,24 @@ franklin-toc {
   counter-increment: nothing;
   content: "";
 }
+
+/* Image sizes */
+img[src*="#fixsmall"] {
+  width:100px;
+}
+img[src*="#fullwidth"] {
+  width:100%;
+  padding-left: 0%;
+}
+img[src*="#threequaterwidth"] {
+  width:75%;
+  padding-left: 12.5%;
+}
+img[src*="#halfwidth"] {
+  width:50%;
+  padding-left: 25%;
+}
+img[src*="#quarterwidth"] {
+  width:25%;
+  padding-left: 37.5%;
+}
