@@ -688,7 +688,7 @@ franklin-toc {
 }
 
 /* Unnumered equations */
-.no-number .katex-display::after {
+.nonumber .katex-display::after {
   counter-increment: nothing;
   content: "";
 }

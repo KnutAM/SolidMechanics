@@ -4,8 +4,8 @@
 # Solid Mechanics
 This page is under development and is planned to introduce
 
-* [Strains](/Strain)
-* [Stresses](/Stresses) (*missing*)
+* [Strain](/Strain)
+* [Stress](/Stress)
 * [Elasticity](/Elasticity) (*missing*)
 * [The Boundary Value Problem (BVP)](/BoundaryValueProblem).
 * [The Finite Element Method (FEM)](/FiniteElements)
