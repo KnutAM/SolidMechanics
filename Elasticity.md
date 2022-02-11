@@ -63,7 +63,7 @@ The behavior of an isotropic material is independent of the loading direction. S
 where $\ts{R}$ is a proper orthogonal rotation tensor. We use the function $\ts{f}$ just to highlight the different between the value of $\sig$ and the function $\sig(\eps)$. 
 In the case of linear elasticity, this relationship translates into
 \begin{align}
-\tf{E} = \left[\ts{R}\opu\ts{R}\right] : \tf{E} : \left[\tst{R}\opu\tst{R}\right]
+\tf{E} = \left[\tst{R}\opu\tst{R}\right] : \tf{E} : \left[\ts{R}\opu\ts{R}\right]
 \end{align}
 
 Isotropic linear elasticity is given by
