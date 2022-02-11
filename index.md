@@ -2,13 +2,13 @@
 @def tags = ["syntax", "code"]
 
 # Solid Mechanics
-This page is under development and is planned to introduce
+This page gives a brief introduction to linear solid mechanics covering the following topics
 
 * [Strain](/Strain)
 * [Stress](/Stress)
-* [Elasticity](/Elasticity) (*missing*)
+* [Elasticity](/Elasticity)
 * [The Boundary Value Problem (BVP)](/BoundaryValueProblem).
-* [The Finite Element Method (FEM)](/FiniteElements)
+* [A very brief introduction to the Finite Element Method (FEM)](/FiniteElements)
 
 The tensor notation is introduced on a separate [webpage](https://knutam.github.io/tensors/). 
 
