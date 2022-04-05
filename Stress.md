@@ -96,13 +96,13 @@ where $\dif V = \dif x \dif y \dif z$. Changing to full index notation we get
 \begin{align*}
 \left[\sigma_{i1}(x_1)-\sigma_{i1}(x_0)\right] \dif y \dif z + \left[\sigma_{i2}(y_1)-\sigma_{i2}(y_0)\right] \dif x \dif z + \left[\sigma_{i3}(z_1)-\sigma_{i3}(z_0)\right] \dif x \dif y = -b_i \dif V
 \end{align*}
-Dividing by $\dif V$, we obtain
+Dividing by $\dif V=\dif x \dif y \dif z$, we obtain
 \begin{align*}
 \frac{\sigma_{i1}(x_0+\dif x)-\sigma_{i1}(x_0)}{\dif x} + \frac{\sigma_{i2}(y_0+\dif y)-\sigma_{i2}(y_0)}{\dif y} + \frac{\sigma_{i3}(z_0+\dif z)-\sigma_{i3}(z_0)}{\dif z} = -b_i
 \end{align*}
 Letting $\dif x \rightarrow 0$, $\dif y \rightarrow 0$, and $\dif z \rightarrow 0$, we obtain
 \begin{align*}
-\diff{\sigma_{i1}}{x} + \dif{\sigma_{i2}}{y} + \frac{\sigma_{i3}}{z} = -b_i
+\diff{\sigma_{i1}}{x} + \diff{\sigma_{i2}}{y} + \diff{\sigma_{i3}}{z} = -b_i
 \end{align*}
 which we can identify as the divergence of $\sig$:
 \begin{align}
