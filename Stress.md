@@ -102,7 +102,7 @@ Dividing by $\dif V=\dif x \dif y \dif z$, we obtain
 \end{align*}
 Letting $\dif x \rightarrow 0$, $\dif y \rightarrow 0$, and $\dif z \rightarrow 0$, we obtain
 \begin{align*}
-\diff{\sigma_{i1}}{x} + \diff{\sigma_{i2}}{y} + \diff{\sigma_{i3}}{z} = -b_i
+\diff{\sigma_{i1}}{x} + \diff{\sigma_{i2}}{y} + \diff{\sigma_{i3}}{z} = \diff{\sigma_{ij}}{x_j} = -b_i
 \end{align*}
 which we can identify as the divergence of $\sig$:
 \begin{align}
