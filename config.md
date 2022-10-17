@@ -14,7 +14,7 @@ ignore = ["node_modules/"]
 # RSS (the website_{title, descr, url} must be defined to get RSS)
 website_title = "Solid Mechanics"
 website_descr = "Introduction to Solid Mechanics"
-prepath = "LinearContinuumMechanics/"
+prepath = "SolidMechanics/"
 website_url   = "https://knutam.github.io/"
 +++
 
