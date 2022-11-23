@@ -23,7 +23,7 @@ The deformation gradient, $\ts{F}$, measures the *gradient* of the *deformed coo
 \begin{align}
 \ts{F} = \gradX{\tv{x}} = \pdiff{\tv{x}}{\tv{X}} = \pdiff{\tv{u}}{\tv{X}} + \ts{I}
 \end{align}
-Here, $\tv{x}$ are the deformed coordinates and $\tv{X}$ the undeformed coordinates. That is, if we have the displacements $\tv{u}$, then $\tv{x}=\tv{X}+\tv{u}$. In 2 dimensions, the effect of the deformation gradient on an area, which is initially square, can be illustrated as
+Here, $\tv{x}$ are the deformed coordinates and $\tv{X}$ the undeformed coordinates. That is, if we have the displacements $\tv{u}$, then $\tv{x}=\tv{X}+\tv{u}$. In 2 dimensions, the effect of the deformation gradient on an infitesimal area, which is initially square, can be illustrated as
 
 ![](/assets/DeformationGradient.svg)
 
