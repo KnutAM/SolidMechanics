@@ -28,7 +28,7 @@ Above, we defined the traction vector $\tv{t}$. For a loaded body, the traction 
 ![](/assets/StressTetrahedron.svg)
 
 ### Relationship between areas
-To be able to use this, we need to determine the relationship between the four areas. To this end, we will use the divergence theorem. If we consider a vector function $\tv{v}(\tv{x})$ defined inside and in the viscinity of a closed body $\Omega$ with the boundary $\Gamma$, the Gauss (divergence) theorem states
+To be able to use this, we need to determine the relationship between the four areas. To this end, we will use the divergence theorem. If we consider a vector function $\tv{a}(\tv{x})$ defined inside and in the viscinity of a closed body $\Omega$ with the boundary $\Gamma$, the Gauss (divergence) theorem states
 \begin{align}
 \int_\Omega \div{\tv{a}} \dif \Omega &= \int_\Gamma \tv{a}\cdot\tv{n} \dif \Gamma \\
 \int_\Omega a_j \nabla_j \dif \Omega &= \int_\Gamma a_j n_j \dif \Gamma
