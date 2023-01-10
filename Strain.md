@@ -45,7 +45,7 @@ When considering nonlinear solid mechanics, so-called finite strain measures are
 \ts{E} = 0.5\left[\tst{F}\ts{F} - \ts{I}\right]
 \end{align}
 
-A current coordinates after a pure rotation are given by $\tv{x} = \ts{R}\tv{X}$, where $\ts{R}$ is a proper orthogonal rotation tensor. For this case,  we obtain $\ts{F} = \ts{R}$ and our two strain measures become
+The current coordinates after a pure rotation are given by $\tv{x} = \ts{R}\tv{X}$, where $\ts{R}$ is a proper orthogonal rotation tensor. For this case,  we obtain $\ts{F} = \ts{R}$ and our two strain measures become
 \begin{align}
 \ts{\epsilon} &= 0.5 \left[\ts{R} + \tst{R}\right] - \ts{I} \neq \ts{0} \\
 \ts{E} &= 0.5\left[\tst{R}\ts{R} - \ts{I}\right] = \ts{0}
