@@ -62,6 +62,10 @@ Add here global latex commands to use throughout your pages.
 \newcommand{\set}[1]{\mathbb{#1}}
 \newcommand{\REAL}{\set{R}}
 
+<!-- Set -->
+\newcommand{\matrix}[1]{\underline{\underline{#1}}}
+\newcommand{\vector}[1]{\underline{#1}}
+
 <!-- Tensors -->
 \newcommand{\onebase}[1]{\tv{e}_{#1}}
 \newcommand{\twobase}[2]{\tv{e}_{#1}\otimes\tv{e}_{#2}}

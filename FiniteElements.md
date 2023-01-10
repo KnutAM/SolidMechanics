@@ -116,3 +116,51 @@ The force vectors $f\supscr{int}_i$ and $f\supscr{ext}_i$ in Equation \eqref{eq:
 ![](/assets/BaseFunctionsMesh.svg#fullwidth)
 
 This makes it possible to calculate contributions elementwise. If we evaluate $\grad{\tv{N}_i}$, for the base functions above, this becomes a constant tensor as $N_j(\tv{x})$ is linear inside the element. Consequently, the strain $\tv{\epsilon} = \left[\grad{\tv{u}}\right]\sym = a_i \left[\grad{\tv{N}_i}\right]\sym$ is also constant. And since the stress is a function of the strain, then $\sig(\eps)$ is constant inside the element, implying that the entire integrand $\left[\grad{ \tv{N}_i}\right] : \sig$ is constant. So for triangular elements with linear base functions, the integrals are trivial to solve. For cases when the base functions are not linear, e.g. quadrilateral elements (4 nodes) or quadratic (6-noded) triangular elements, we need to use numerical integration techniques, see e.g. *Niels Ottosen and Hans Petersson, 1992: "Introduction to the Finite Element Method"*, Chapter 20. 
+
+### Solving a linear finite element problem
+For the finite element problem to be linear, we require that the material behavior is linear. 
+For this example, we will use linear elasticity, such that $\sig=\tf{E}:\eps$. 
+For this case, our $f\supscr{int}_i$ simplifies to 
+\begin{align}
+f\supscr{int}_i &= \int_\Omega \left[\grad{ \tv{N}_i}\right]\sym : \tf{E}: \left[\grad{ \tv{N}_j}\right]\sym \, \dif \Omega a_j\\
+\end{align}
+as $\tf{E}$ is minor symmetric and $\eps=\left[\grad{ \tv{N}_j}\right]\sym a_j$. 
+Note that everything inside the integral is now independent of the solution $a_j$, 
+and we can write this as 
+\begin{align}
+K_{ij} &= \int_\Omega \left[\grad{ \tv{N}_i}\right]\sym : \tf{E}: \left[\grad{ \tv{N}_j}\right]\sym \, \dif \Omega \\
+f\supscr{int}_i &= K_{ij} a_j
+\end{align}
+We can then remind ourselves that $f\supscr{ext}_i$ is given as
+\begin{align}
+f\supscr{ext}_i &= \int_{\Gamma\subscr{N}} \tv{N}_i \cdot \tv{t}\subscr{N}\, \dif \Gamma\subscr{N} + \int_{\Gamma\subscr{D}}\tv{N}_i \cdot \sig \cdot \tv{n}\, \dif \Gamma\subscr{D} + \int_\Omega \tv{N}_i \cdot \tv{b}\, \dif \Omega
+\end{align}
+which we will simply denote $f_i$ from now on. Our complete equation system is then
+\begin{align}
+K_{ij} a_j &= f_i \\
+\matrix{K} \vector{a} &= \vector{f}
+\end{align}
+where the latter equation is just in matrix-vector form. 
+
+However, for degrees of freedom $i$ on $\Gamma\subscr{D}$, $f_i$ is unknown. 
+On the other hand, that implies that the corresponding $a_i$ is known. 
+We can partition our equation system into "free" degrees of freedom, $\underline{a}\subscr{F}$,
+where the solution $a_i$ is unknown (but $f_i$ is known) and prescribed degrees of freedom, 
+$\underline{a}\subscr{P}$, where the solution $a_i$ is known (but $f_i$ is unknown). 
+This gives
+\begin{align}
+\begin{bmatrix}
+\matrix{K}\subscr{FF} & \matrix{K}\subscr{FP} \\ \matrix{K}\subscr{PF} & \matrix{K}\subscr{PP}
+\end{bmatrix}
+\begin{bmatrix} \vector{a}\subscr{F} \\ \vector{a}\subscr{P} \end{bmatrix}= 
+\begin{bmatrix} \vector{f}\subscr{F} \\ \vector{f}\subscr{P} \end{bmatrix}
+\end{align}
+where $\vector{a}\subscr{P}$ and $\vector{f}\subscr{F}$ are known, while $\vector{a}\subscr{F}$ and $\vector{f}\subscr{P}$ are unknown. 
+We can then solve this by first solving the linear equation system 
+\begin{align}
+\matrix{K}\subscr{FF} \vector{a}\subscr{F} = \vector{f}\subscr{F} - \matrix{K}\subscr{FP} \vector{a}\subscr{P}
+\end{align}
+to find $\vector{a}\subscr{F}$. $\vector{f}\subscr{P}$ is then given as 
+\begin{align}
+\vector{f}\subscr{P} = \matrix{K}\subscr{PF}\vector{a}\subscr{F} + \matrix{K}\subscr{PP}\vector{a}\subscr{P}
+\end{align}
