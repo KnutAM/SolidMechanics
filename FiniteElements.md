@@ -39,11 +39,11 @@ Because the test displacement field $\tv{\delta u}(\tv{x})$ is arbitrary, the fo
 
 If we then apply the [Green-Gauss theorem](https://knutam.github.io/tensors/Theory/TensorIntegration/) to the first equation, we obtain
 \begin{align}
-\int_\Gamma \tv{\delta u}\cdot \sig\trans \cdot \tv{n}\, \dif \Gamma - \int_\Omega \left[\grad{\tv{\delta u}}\right] : \sig\trans\, \dif \Omega &= - \int_\Omega \tv{\delta u} \cdot \tv{b}\, \dif \Omega \\
+\int_\Gamma \tv{\delta u}\cdot \sig \cdot \tv{n}\, \dif \Gamma - \int_\Omega \left[\grad{\tv{\delta u}}\right] : \sig\, \dif \Omega &= - \int_\Omega \tv{\delta u} \cdot \tv{b}\, \dif \Omega \\
 \end{align}
 and we can insert the known traction on the Neumann boundary $\Gamma\subscr{N}$ as
 \begin{align}
-\int_{\Gamma\subscr{N}} \tv{\delta u}\cdot \tv{t}\subscr{N}\, \dif \Gamma\subscr{N} + \int_{\Gamma\subscr{D}} \tv{\delta u}\cdot \sig\trans \cdot \tv{n}\, \dif \Gamma\subscr{D} - \int_\Omega \left[\grad{\tv{\delta u}}\right] : \sig\trans\, \dif \Omega &= - \int_\Omega \tv{\delta u} \cdot \tv{b}\, \dif \Omega \\
+\int_{\Gamma\subscr{N}} \tv{\delta u}\cdot \tv{t}\subscr{N}\, \dif \Gamma\subscr{N} + \int_{\Gamma\subscr{D}} \tv{\delta u}\cdot \sig \cdot \tv{n}\, \dif \Gamma\subscr{D} - \int_\Omega \left[\grad{\tv{\delta u}}\right] : \sig\, \dif \Omega &= - \int_\Omega \tv{\delta u} \cdot \tv{b}\, \dif \Omega \\
 \tv{u} &= \tv{u}\subscr{D} \; \mathrm{on}\, \Gamma\subscr{D} \label{eq:weakform}
 \end{align}
 while keeping the known displacements on $\Gamma\subscr{D}$. 
@@ -56,14 +56,14 @@ The weak form in Equation \eqref{eq:weakform} is also very difficult to solve, p
 \end{align}
 where $a_i$ and $\delta a_i$ are the coefficients that we need to determine and $\tv{N}_i$ and $\tv{N}^\delta_i$ are shape functions that we postulate can be used to describe the solution and test space. So we restrict our solution to solutions that can be described by this *discretization*. Here, we will use the standard Galerkin method of having $\tv{N}_i = \tv{N}^\delta_i$, which is described in detail in specific finite element courses. Inserting these approximations into our weak form, we obtained the discretized FE-problem 
 \begin{align}
-\delta a_i \left[\int_{\Gamma\subscr{N}} \tv{N}_i \cdot \tv{t}\subscr{N}\, \dif \Gamma\subscr{N} + \int_{\Gamma\subscr{D}}\tv{N}_i \cdot \sig\trans \cdot \tv{n}\, \dif \Gamma\subscr{D} - \int_\Omega \left[\grad{ \tv{N}_i}\right] : \sig\trans\, \dif \Omega\right] &= - \delta a_i \int_\Omega \tv{N}_i \cdot \tv{b}\, \dif \Omega \\
+\delta a_i \left[\int_{\Gamma\subscr{N}} \tv{N}_i \cdot \tv{t}\subscr{N}\, \dif \Gamma\subscr{N} + \int_{\Gamma\subscr{D}}\tv{N}_i \cdot \sig \cdot \tv{n}\, \dif \Gamma\subscr{D} - \int_\Omega \left[\grad{ \tv{N}_i}\right] : \sig\, \dif \Omega\right] &= - \delta a_i \int_\Omega \tv{N}_i \cdot \tv{b}\, \dif \Omega \\
 a_i \tv{N}_i = \tv{u}\subscr{D} \; \mathrm{on}\, \Gamma\subscr{D} \label{eq:feform}
 \end{align}
 Since $\tv{\delta u}$ should be arbitrary, so should $\delta a_i$. So by letting $\delta a_i=1$ and $\delta a_j=0$ for all $j\neq i$ for all $i$ (e.g. $\delta a_1=1$, then $\delta a_2=\delta a_3=\cdots=\delta a_n=0$ and $\delta a_2=1$, then $\delta a_1=\delta a_3=\cdots=\delta a_n=0$ and so on), we have $n$ equations ($i=1,2,\cdots,n$) that we can write as
 \begin{align}
 f\supscr{int}_i &= f\supscr{ext}_i \\
-f\supscr{int}_i &= \int_\Omega \left[\grad{ \tv{N}_i}\right] : \sig\trans\, \dif \Omega \\
-f\supscr{ext}_i &= \int_{\Gamma\subscr{N}} \tv{N}_i \cdot \tv{t}\subscr{N}\, \dif \Gamma\subscr{N} + \int_{\Gamma\subscr{D}}\tv{N}_i \cdot \sig\trans \cdot \tv{n}\, \dif \Gamma\subscr{D} + \int_\Omega \tv{N}_i \cdot \tv{b}\, \dif \Omega \label{eq:feform}
+f\supscr{int}_i &= \int_\Omega \left[\grad{ \tv{N}_i}\right] : \sig\, \dif \Omega \\
+f\supscr{ext}_i &= \int_{\Gamma\subscr{N}} \tv{N}_i \cdot \tv{t}\subscr{N}\, \dif \Gamma\subscr{N} + \int_{\Gamma\subscr{D}}\tv{N}_i \cdot \sig \cdot \tv{n}\, \dif \Gamma\subscr{D} + \int_\Omega \tv{N}_i \cdot \tv{b}\, \dif \Omega \label{eq:feform}
 \end{align}
 
 where $f\supscr{int}$ and $f\supscr{ext}$ are the so-called internal (due to stresses) and external (due to applied loads) forces, respectively. 
@@ -115,4 +115,4 @@ The force vectors $f\supscr{int}_i$ and $f\supscr{ext}_i$ in Equation \eqref{eq:
 
 ![](/assets/BaseFunctionsMesh.svg#fullwidth)
 
-This makes it possible to calculate contributions elementwise. If we evaluate $\grad{\tv{N}_i}$, for the base functions above, this becomes a constant tensor as $N_j(\tv{x})$ is linear inside the element. Consequently, the strain $\tv{\epsilon} = \left[\grad{\tv{u}}\right]\sym = a_i \left[\grad{\tv{N}_i}\right]\sym$ is also constant. And since the stress is a function of the strain, then $\sig(\eps)$ is constant inside the element, implying that the entire integrand $\left[\grad{ \tv{N}_i}\right] : \sig\trans$ is constant. So for triangular elements with linear base functions, the integrals are trivial to solve. For cases when the base functions are not linear, e.g. quadrilateral elements (4 nodes) or quadratic (6-noded) triangular elements, we need to use numerical integration techniques, see e.g. *Niels Ottosen and Hans Petersson, 1992: "Introduction to the Finite Element Method"*, Chapter 20. 
+This makes it possible to calculate contributions elementwise. If we evaluate $\grad{\tv{N}_i}$, for the base functions above, this becomes a constant tensor as $N_j(\tv{x})$ is linear inside the element. Consequently, the strain $\tv{\epsilon} = \left[\grad{\tv{u}}\right]\sym = a_i \left[\grad{\tv{N}_i}\right]\sym$ is also constant. And since the stress is a function of the strain, then $\sig(\eps)$ is constant inside the element, implying that the entire integrand $\left[\grad{ \tv{N}_i}\right] : \sig$ is constant. So for triangular elements with linear base functions, the integrals are trivial to solve. For cases when the base functions are not linear, e.g. quadrilateral elements (4 nodes) or quadratic (6-noded) triangular elements, we need to use numerical integration techniques, see e.g. *Niels Ottosen and Hans Petersson, 1992: "Introduction to the Finite Element Method"*, Chapter 20. 

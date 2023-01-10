@@ -107,7 +107,4 @@ Finally, if we insert the constitutive relationship $\sig=2G \eps\dev + K\eps\sp
 \end{align}
 I.e. we see that the stress is indeed uniaxial. Furthermore, seeing combining Equation \eqref{eq:kinematicresult} with Equation \eqref{eq:stressresult}, we see that $\sigma_{11}=E \epsilon_{11}$, showing that the $E$ we defined earlier is the actual Young's modulus. 
 
-In summary, for even this very simple case, determining the solution to the BVP in Equation \eqref{eq:bvp} was quite a bit of effort. And as previously noted, in many cases no unique solution exists even if we include simplifications such as [plane stress or strain](#plane_stress_and_strain). 
-
-## Plane strain and stress
-To be completed ...
+In summary, for even this very simple case, determining the solution to the BVP in Equation \eqref{eq:bvp} was quite a bit of effort. And as previously noted, in many cases no unique solution exists even if we include simplifications such as plane stress or strain.
