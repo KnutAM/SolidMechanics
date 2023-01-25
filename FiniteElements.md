@@ -70,8 +70,8 @@ where $f\supscr{int}$ and $f\supscr{ext}$ are the so-called internal (due to str
 
 ### Base functions
 The base functions $\tv{N}$ have many names, e.g. *basis*, *shape*, *test*, *trial*, etc. functions. These are generally used interchangably, potentially leading to some confusion.
-In general, *test* and *trial* often denote the functions approximating the *test* function, $\tv{\delta u}$ (yes, the same name), i.e. $\tv{N}^\delta$. *Shape*
-functions often describe the functions approximating the solution $\tv{u}$, i.e. $\tv{N}$. Finally, *base* or *basis* functions are often used to describe both $\tv{N}$ and $\tv{N}^\delta$.
+In general, *test* often denote the functions approximating the *test* function, $\tv{\delta u}$ (yes, the same name), i.e. $\tv{N}^\delta$. *Trial*
+functions often describe the functions approximating the solution $\tv{u}$, i.e. $\tv{N}$. *Shape* function is often used to describe the geometry. Finally, *base* or *basis* functions are often used to describe all of the above.
 For the $n$ equations $f\supscr{int}_i = f\supscr{ext}_i$ above to form a solvable equation system, we require (1) that the base functions are independent. That is, for each $j\in[1,n]$, there doesn't exist 
 coefficients $a_i$ where $a_j=0$ such that $\tv{N}_j = a_i \tv{N}_i$. Secondly, we require that the solution is constrained by Dirichlet boundary conditions such that rigid body motions are prevented. 
 
