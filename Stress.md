@@ -86,27 +86,31 @@ In the previous example, we took the equilibrium to find the definition of the C
 
 The traction $\tv{t}_1$ will change slightly as we move from $x_0$ to $x_1=x_0+\dif x$, but we consider it's average value in the $y$ and $z$ directions. Similarly for $\tv{t}_2$ and $\tv{t}_3$ for $x,z$ and $x,y$ respectively. Taking the equilibrium equations for a volume load $\tv{b}$ and neglecting dynamic forces (i.e. quasi-static conditions) in the direction $\tv{e}_i$ we obtain
 \begin{align*}
-\left[\left[(\tv{t}_1(x_0)+\tv{t}_1(x_1)\right] \dif y \dif z + \left[(\tv{t}_2(y_0)+\tv{t}_2(y_1)\right] \dif x \dif z + \left[(\tv{t}_3(z_0)+\tv{t}_1(z_1)\right] \dif x \dif y\right] \cdot \tv{e}_i = -\tv{b} \dif V
+\left[\left[(\tv{t}_1(x_0)+\tv{t}_1(x_1)\right] \dif y \dif z + \left[(\tv{t}_2(y_0)+\tv{t}_2(y_1)\right] \dif x \dif z + \left[(\tv{t}_3(z_0)+\tv{t}_1(z_1)\right] \dif x \dif y\right] \cdot \tv{e}_i = -\tv{b} \cdot \tv{e}_i \dif V
 \end{align*}
 Inserting Cauchy's Theorem, and noting that the normal vectors are $\pm \tv{e}_j$, we get
 \begin{align*}
-\left[\left[\sig(x_1)-\sig(x_0)\right]\cdot \tv{e}_1 \dif y \dif z + \left[\sig(y_1)-\sig(y_0)\right]\cdot \tv{e}_2 \dif x \dif z + \left[\sig(z_1)-\sig(z_0)\right]\cdot \tv{e}_3 \dif x \dif y\right] \cdot \tv{e}_i = -\tv{b} \tv{e}_i \dif V
+\left[
+\tv{e}_1 \cdot \left[\sig(x_1)-\sig(x_0)\right] \dif y \dif z + 
+\tv{e}_2 \cdot \left[\sig(y_1)-\sig(y_0)\right] \dif x \dif z + 
+\tv{e}_3 \cdot \left[\sig(z_1)-\sig(z_0)\right] \dif x \dif y
+\right] \cdot \tv{e}_i = -\tv{b} \cdot \tv{e}_i \dif V
 \end{align*}
 where $\dif V = \dif x \dif y \dif z$. Changing to full index notation we get
 \begin{align*}
-\left[\sigma_{i1}(x_1)-\sigma_{i1}(x_0)\right] \dif y \dif z + \left[\sigma_{i2}(y_1)-\sigma_{i2}(y_0)\right] \dif x \dif z + \left[\sigma_{i3}(z_1)-\sigma_{i3}(z_0)\right] \dif x \dif y = -b_i \dif V
+\left[\sigma_{1i}(x_1)-\sigma_{1i}(x_0)\right] \dif y \dif z + \left[\sigma_{2i}(y_1)-\sigma_{2i}(y_0)\right] \dif x \dif z + \left[\sigma_{3i}(z_1)-\sigma_{3i}(z_0)\right] \dif x \dif y = -b_i \dif V
 \end{align*}
 Dividing by $\dif V=\dif x \dif y \dif z$, we obtain
 \begin{align*}
-\frac{\sigma_{i1}(x_0+\dif x)-\sigma_{i1}(x_0)}{\dif x} + \frac{\sigma_{i2}(y_0+\dif y)-\sigma_{i2}(y_0)}{\dif y} + \frac{\sigma_{i3}(z_0+\dif z)-\sigma_{i3}(z_0)}{\dif z} = -b_i
+\frac{\sigma_{1i}(x_0+\dif x)-\sigma_{1i}(x_0)}{\dif x} + \frac{\sigma_{2i}(y_0+\dif y)-\sigma_{2i}(y_0)}{\dif y} + \frac{\sigma_{3i}(z_0+\dif z)-\sigma_{3i}(z_0)}{\dif z} = -b_i
 \end{align*}
 Letting $\dif x \rightarrow 0$, $\dif y \rightarrow 0$, and $\dif z \rightarrow 0$, we obtain
 \begin{align*}
-\diff{\sigma_{i1}}{x} + \diff{\sigma_{i2}}{y} + \diff{\sigma_{i3}}{z} = \diff{\sigma_{ij}}{x_j} = -b_i
+\diff{\sigma_{1i}}{x} + \diff{\sigma_{2i}}{y} + \diff{\sigma_{3i}}{z} = \diff{\sigma_{ji}}{x_j} = -b_i
 \end{align*}
-which we can identify as the divergence of $\sig$:
+which we can identify as the divergence of $\sig\trans$:
 \begin{align}
-\div{\sig} + \tv{b} = \tv{0}
+\div{\sig\trans} + \tv{b} = \tv{0}
 \end{align}
 And this is the force equilibrium equation for a continuum. 
 
@@ -117,15 +121,17 @@ Finally, we can show that $\sig$ is a symmetric tensor. By using Cauchy's Theore
 
 with the same coordinate system as before. 
 
-We then check that the counterclockwise moment around the $\tv{e}_3$ axis at $\tv{x}_0$ is zero. We denote the areas of the sides $\dif A_1 = \dif y \dif z$ and $\dif A_2 = \dif x \dif z$ for clarity.
+We then check that the counterclockwise moment around the $\tv{e}_3$ axis at $\tv{x}_0$ is zero. We denote the areas of the sides $\dif A_x = \dif y \dif z$ and $\dif A_y = \dif x \dif z$ for clarity.
 \begin{align}
-\sigma_{12} \dif A_1 \dif x  - \sigma_{21} \dif A_2 \dif y + (\sigma_{22}(y_1)-\sigma_{22}(y_0)) \dif A_2 \dif y/2 - (\sigma_{11}(x_1)-\sigma_{11}(x_0)) \dif A_1 \dif x/2 + b_2 \dif V \dif x/2 - b_1 \dif V \dif y/2 = 0
+0 &= \sigma_{12} \dif A_x \dif x  - \sigma_{21} \dif A_y \dif y  \\
+ &+ (\sigma_{22}(y_1)-\sigma_{22}(y_0)) \dif A_y \frac{\dif y}{2} - (\sigma_{11}(x_1)-\sigma_{11}(x_0)) \dif A_x \frac{\dif x}{2} \\
+ &+ b_2 \dif V \frac{\dif x}{2} - b_1 \dif V \frac{\dif y}{2} 
 \end{align}
-where $b_1$ and $b_2$ are the $x$ and $y$ components of the volume load. Dividing by $\dif V=\dif x \dif y \dif z = \dif A_1 \dif x = \dif A_2 \dif y$ we obtain
+where $b_1$ and $b_2$ are the $x$ and $y$ components of the volume load. Dividing by $\dif V=\dif x \dif y \dif z = \dif A_x \dif x = \dif A_y \dif y$ we obtain
 \begin{align}
-\sigma_{12} - \sigma_{21} + (\sigma_{22}(y_1)-\sigma_{22}(y_0))/2 - (\sigma_{11}(x_1)-\sigma_{11}(x_0)) /2 + b_2 \dif x/2 - b_1 \dif y/2 = 0
+0 = \sigma_{12} - \sigma_{21} + \frac{\sigma_{22}(y_1)-\sigma_{22}(y_0)}{2} - \frac{\sigma_{11}(x_1)-\sigma_{11}(x_0)}{2} + \frac{b_2 \dif x}{2} - \frac{b_1 \dif y}{2}
 \end{align}
-Letting the volume go to zero, we have $(\sigma_{22}(y_1)-\sigma_{22}(y_0))\rightarrow 0$ and $(\sigma_{11}(x_1)-\sigma_{11}(x_0))\rightarrow 0$, yielding
+Letting the size go to zero, $\sigma_{22}(y_1) \rightarrow \sigma_{22}(y_0)$, $\sigma_{11}(x_1) \rightarrow \sigma_{11}(x_0)$, $\dif x \rightarrow 0$, and $\dif y \rightarrow 0$, and we have
 \begin{align}
 \sigma_{12} = \sigma_{21}
 \end{align}
