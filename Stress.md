@@ -30,40 +30,40 @@ Above, we defined the traction vector $\tv{t}$. For a loaded body, the traction 
 ### Relationship between areas
 To be able to use this, we need to determine the relationship between the four areas. To this end, we will use the divergence theorem. If we consider a vector function $\tv{a}(\tv{x})$ defined inside and in the viscinity of a closed body $\Omega$ with the boundary $\Gamma$, the Gauss (divergence) theorem states
 \begin{align}
-\int_\Omega \div{\tv{a}} \dif \Omega &= \int_\Gamma \tv{a}\cdot\tv{n} \dif \Gamma \\
-\int_\Omega a_j \nabla_j \dif \Omega &= \int_\Gamma a_j n_j \dif \Gamma
+\int_\Omega \div{\tv{a}}\ \dif \Omega &= \int_\Gamma \tv{a}\cdot\hat{\tv{n}}\ \dif \Gamma \\
+\int_\Omega a_j \nabla_j\ \dif \Omega &= \int_\Gamma a_j \hat{n}_j\ \dif \Gamma
 \end{align}
-where $\tv{n}$ is a unit normal vector pointing out of the body. By using this equation three times with $b_{1j}=a_j$, $b_{2j}=a_j$, and lastly $b_{3j}=a_j$ we get three equations as
-\begin{align*}
-\int_\Omega b_{ij} \nabla_j \dif \Omega &= \int_\Gamma b_{ij} n_j \dif \Gamma
-\end{align*}
-If we then set $b_{ij}=\delta_{ij}$, we obtain
+where $\hat{\tv{n}}$ is a unit normal vector pointing out of the body. If we apply this theorem with the constant vector $\tv{a} = \basei$ (such that $\div{\basei}=0$),
+we get that
 \begin{align}
-\int_\Gamma n_i \dif \Gamma = 0
+\int_\Gamma \basei\cdot\hat{\tv{n}}\ \dif \Gamma &= \int_\Gamma \hat{n}_i\ \dif \Gamma = 0\quad \Rightarrow \quad 
+\int_\Gamma \hat{\tv{n}}\ \dif \Gamma &= \tv{0} \label{eq:surfacenormalintegral}
 \end{align}
-as $\delta_{ij} \nabla_j$ is zero as $\delta_{ij}$ is constant. 
-For our tetrahedron, this implies that
+Our tetrahedron, we have 4 sides, with normal vectors $\tv{n}$, $-\onebase{1}$, $-\onebase{2}$, and $-\onebase{3}$,
+and corresponding areas $A$, $A_1$, $A_2$, and $A_3$. Hence, in our case Equation \eqref{eq:surfacenormalintegral} yields
 \begin{align}
-A \tv{n} = A_1 \onebase{1} + A_2 \onebase{2} + A_3 \onebase{3} = A_i \basei
+\int_\Gamma \tv{n}\ \dif \Gamma = A\ \tv{n} - A_1 \onebase{1} - A_2 \onebase{2} - A_3 \onebase{3} = A\ \tv{n} - A_i \basei = \tv{0}
 \end{align}
-where $\tv{n}$ is the normal vector of the plane with area $A$. The three other faces have normal vectors $\tv{n}_1=-\onebase{1}$, $\tv{n}_2=-\onebase{2}$, and $\tv{n}_3=-\onebase{3}$. Scalar multiplying this expression by $\onebase{j}$ we obtain 
+resulting in $A\ \tv{n} = A_i \basei$. If we take the dot-product of this equation with the base vector $\onebase{j}$, we finally get
 \begin{align}
-A \tv{n}\cdot\onebase{j} = A_i \delta_{ij} = A_j \label{eq:arearelation}
+A\ \tv{n}\cdot\onebase{j} = A_i \basei \cdot \onebase{j} = A_i \delta_{ij} = A_j \label{eq:arearelation}
 \end{align}
+This equation, $A_j = A\ \tv{n}\cdot\onebase{j}$, describes the relationship between the area $A_j$ on side $j$ of the tetrahedron and the area $A$ on the slanted side.
+It depends only on the normal vector $\tv{n}$ of the slanted side. 
 
 ### Equilibrium on tetrahedron
 We consider that the tetrahedron can include a body load which is load per volume, $\tv{b}$, where the volume is $V$. Then, the equilibrium equation for the tetrahedron becomes
 \begin{align*}
-0 = \tv{t}_i A_i + \tv{t} A + \tv{b} V
+0 = \tv{t}_i A_i + \tv{t}\ A + \tv{b}\ V
 \end{align*}
 
 Evaluating this equation for each coordinate direction, $\onebase{j}$, we get
 \begin{align*}
-0 &= A_i \tv{t}_i \cdot \onebase{j} + A \tv{t} \cdot \onebase{j} + V \tv{b} \cdot \onebase{j}
+0 &= A_i \tv{t}_i \cdot \onebase{j} + A\ \tv{t} \cdot \onebase{j} + V \tv{b} \cdot \onebase{j}
 \end{align*}
 Inserting Equation \eqref{eq:arearelation}, we obtain
 \begin{align*}
-0 &= A [\tv{n}\cdot\onebase{i}] [\tv{t}_i \cdot \onebase{j}] + A \tv{t} \cdot \onebase{j} + V \tv{b} \cdot \onebase{j} \\
+0 &= A [\tv{n}\cdot\onebase{i}] [\tv{t}_i \cdot \onebase{j}] + A\ \tv{t} \cdot \onebase{j} + V \tv{b} \cdot \onebase{j} \\
 0 &= [\tv{n}\cdot\onebase{i}] [\tv{t}_i \cdot \onebase{j}] + \tv{t} \cdot \onebase{j} + \frac{V}{A} \tv{b} \cdot \onebase{j}
 \end{align*}
 If we now let the tetrahedron shrink, the volume to area ratio goes to zero (because volume is proportional to the side lengths cubed and area to lengths squared). Hence, we get
